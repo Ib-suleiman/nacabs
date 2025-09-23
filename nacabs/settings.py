@@ -133,3 +133,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ibrahimsuleiman77@gmail.com'
 EMAIL_HOST_PASSWORD = 'owtqbrhfnajfdtzw'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+ALLOWED_HOSTS = ['.onrender.com']
