@@ -1,0 +1,70 @@
+main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.academics-section {
+  margin-bottom: 2.5rem;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.academics-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #005a9c;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.academics-section h2::after {
+  content: '▾';
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.academics-section.collapsed h2::after {
+  transform: rotate(-90deg);
+}
+
+.academics-section.collapsed > *:not(h2) {
+  display: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1.2rem;
+}
+
+ul > li {
+  margin-bottom: 0.5rem;
+}
+
+ul > li > ul {
+  margin-top: 0.3rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}

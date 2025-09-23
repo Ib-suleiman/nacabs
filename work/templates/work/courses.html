@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses - NACABS POLYTECHNIC</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #005a9c;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    .filter-section {
+      margin-bottom: 30px;
+    }
+
+    select {
+      padding: 8px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .course-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 15px 0;
+      border-left: 5px solid #005a9c;
+      background-color: #f8faff;
+    }
+
+    .course-card h4 {
+      margin: 0 0 10px 0;
+      color: #005a9c;
+    }
+
+    .course-card p {
+      margin: 0;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NACABS POLYTECHNICS</h1>
+    <p>Explore Our Courses</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="{% url 'academics' %}">Academics</a>
+    <a href="{% url 'admissions' %}">Admissions</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </nav>
+
+  <main>
+    <section class="filter-section">
+      <h2>Available Courses</h2>
+      <label for="departmentSelect">Filter by Department:</label>
+      <select id="departmentSelect">
+        <option value="all">All Departments</option>
+        <option value="engineering">Engineering</option>
+        <option value="sciences">Sciences</option>
+        <option value="management">Management</option>
+        <option value="masscomm">Mass Communication</option>
+      </select>
+    </section>
+
+    <section id="coursesContainer">
+
+      <!-- Engineering Courses -->
+      <div class="course-card" data-dept="engineering">
+        <h4>Electrical/Electronics Engineering (ND)</h4>
+        <p>Fundamentals of circuit design, electronics, and practical workshop sessions.</p>
+      </div>
+      
+      <div class="course-card" data-dept="engineering">
+        <h4>Electrical/Electronics Engineering (HND)</h4>
+        <p>Fundamentals of circuit design, electronics, and practical workshop sessions.</p>
+      </div>
+
+      <div class="course-card" data-dept="engineering">
+        <h4>Mechanical Engineering (ND)</h4>
+        <p>Advanced mechanics, thermodynamics, and manufacturing processes.</p>
+      </div>
+
+      <div class="course-card" data-dept="engineering">
+        <h4>Mechanical Engineering (HND)</h4>
+        <p>Advanced mechanics, thermodynamics, and manufacturing processes.</p>
+      </div>
+
+      <!-- Science Courses -->
+      <div class="course-card" data-dept="sciences">
+        <h4>Computer Science (ND)</h4>
+        <p>Programming, web development, networking, and software fundamentals.</p>
+      </div>
+
+      <div class="course-card" data-dept="sciences">
+        <h4>Computer Science (HND)</h4>
+        <p>Programming, web development, networking, and software fundamentals.</p>
+      </div>
+
+      <div class="course-card" data-dept="sciences">
+        <h4>Statistics (ND)</h4>
+        <p>Data analysis, inferential statistics, visualization, and data plotting.</p>
+      </div>
+
+      <div class="course-card" data-dept="sciences">
+        <h4>Statistics (HND)</h4>
+        <p>Data analysis, inferential statistics, visualization, and data plotting.</p>
+      </div>
+
+      <div class="course-card" data-dept="sciences">
+        <h4>Science Laboratory Technology (ND)</h4>
+        <p>Chemical analysis, biological research techniques, and lab safety practices.</p>
+      </div>
+
+      <div class="course-card" data-dept="sciences">
+        <h4>Science Laboratory Technology (HND)</h4>
+        <p>Chemical analysis, biological research techniques, and lab safety practices.</p>
+      </div>
+
+      <!-- Management Courses -->
+      <div class="course-card" data-dept="management">
+        <h4>Business Administration (ND)</h4>
+        <p>Entrepreneurship, marketing, financial management, and HR practices.</p>
+      </div>
+
+      <div class="course-card" data-dept="management">
+        <h4>Business Administration (HND)</h4>
+        <p>Entrepreneurship, marketing, financial management, and HR practices.</p>
+      </div>
+
+      <div class="course-card" data-dept="management">
+        <h4>Accountancy (ND)</h4>
+        <p>Basic accounting principles, taxation, and auditing.</p>
+      </div>
+
+      <div class="course-card" data-dept="management">
+        <h4>Accountancy (HND)</h4>
+        <p>Basic accounting principles, taxation, and auditing.</p>
+      </div>
+
+      <!-- Mass Communication -->
+      <div class="course-card" data-dept="masscomm">
+        <h4>Mass Communication (ND)</h4>
+        <p>News reporting, broadcast media, and public relations strategies.</p>
+      </div>
+
+      <div class="course-card" data-dept="masscomm">
+        <h4>Mass Communication (HND)</h4>
+        <p>News reporting, broadcast media, and public relations strategies.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Premier Polytechnic. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const departmentSelect = document.getElementById('departmentSelect');
+    const courseCards = document.querySelectorAll('.course-card');
+
+    departmentSelect.addEventListener('change', function () {
+      const selectedDept = this.value;
+
+      courseCards.forEach(card => {
+        const dept = card.getAttribute('data-dept');
+        if (selectedDept === 'all' || dept === selectedDept) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

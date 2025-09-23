@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Academics - Premier Polytechnic</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1{
+      color: #fff;
+    }
+
+    nav {
+      background-color: #005a9c;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+    }
+
+    h1, h2 {
+      color: #003366;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .departments {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .department {
+      flex: 1;
+      min-width: 250px;
+      background: #e6f0ff;
+      padding: 20px;
+      border-left: 5px solid #005a9c;
+    }
+
+    .courses {
+      margin-top: 10px;
+      display: none;
+    }
+
+    .department h3 {
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .departments {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NACABS Polytechnic, Kabayi Study Center</h1>
+    <p>Academic Excellence Through Practical Learning</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'admissions' %}">Admission</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </nav>
+
+  <main>
+    <h2>Our Academic Structure</h2>
+
+    <div class="section">
+      <p>
+        NACABS Polytechnic, Kabayi Study Center offers a wide range of National Diploma (ND) and Higher National Diploma (HND) programs designed 
+        to equip students with technical knowledge, practical skills, and industry readiness. Our curriculum is developed 
+        in alignment with NBTE standards and regularly updated to meet market demands.
+      </p>
+    </div>
+
+    <div class="section departments">
+      <div class="department">
+        <h3 onclick="toggleCourses(this)">School of Engineering Technology</h3>
+        <div class="courses">
+          <ul>
+            <li>Electrical/Electronic Engineering</li>
+            <li>Mechanical Engineering</li>
+            <li>Civil Engineering</li>
+            <li>Computer Engineering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="department">
+        <h3 onclick="toggleCourses(this)">School of Business & Management Studies</h3>
+        <div class="courses">
+          <ul>
+            <li>Business Administration</li>
+            <li>Accountancy</li>
+            <li>Public Administration</li>
+            <li>Marketing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="department">
+        <h3 onclick="toggleCourses(this)">School of Applied Sciences</h3>
+        <div class="courses">
+          <ul>
+            <li>Computer Science</li>
+            <li>Science Laboratory Technology</li>
+            <li>Statistics</li>
+            <li>Food Technology</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="department">
+        <h3 onclick="toggleCourses(this)">School of Environmental Studies</h3>
+        <div class="courses">
+          <ul>
+            <li>Architecture</li>
+            <li>Estate Management</li>
+            <li>Urban and Regional Planning</li>
+            <li>Building Technology</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Academic Calendar</h3>
+      <p>
+        Our academic session is divided into two semesters: First Semester (October–February) and Second Semester (March–July), 
+        with mid-semester and end-of-semester examinations. Continuous assessment is integrated to ensure consistent academic monitoring.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Examination & Grading System</h3>
+      <p>
+        Students are evaluated through tests, assignments, and final exams. The grading system follows the standard polytechnic grading scale 
+        approved by NBTE, ensuring transparency and merit-based progression.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NACABS Polytechnic, Kabayi Study Center. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleCourses(element) {
+      const courses = element.nextElementSibling;
+      if (courses.style.display === "block") {
+        courses.style.display = "none";
+      } else {
+        courses.style.display = "block";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log("Academics page loaded.");
+    });
+  </script>
+
+</body>
+</html>

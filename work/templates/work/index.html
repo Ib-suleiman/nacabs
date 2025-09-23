@@ -1,0 +1,958 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NACABS Polytechnic - Home of Technical Excellence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #003366;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 70px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            text-align: center;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            background-color: white;
+            padding: 40px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .link-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            border-radius: 10px;
+            padding: 25px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .link-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .link-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Announcements */
+        .announcements {
+            padding: 60px 0;
+            background-color: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .announcements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .announcement-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .announcement-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .announcement-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .announcement-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .announcement-card:hover .announcement-img img {
+            transform: scale(1.1);
+        }
+        
+        .announcement-content {
+            padding: 20px;
+        }
+        
+        .announcement-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .announcement-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .announcement-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.3s;
+        }
+        
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .program-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .program-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .program-body {
+            padding: 25px;
+        }
+        
+        .program-body ul {
+            list-style-type: none;
+            margin: 15px 0;
+        }
+        
+        .program-body ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .program-body ul li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-card {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-links a i {
+            color: var(--accent);
+        }
+        
+        .contact-info-footer {
+            list-style: none;
+        }
+        
+        .contact-info-footer li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-info-footer i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            nav ul {
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .contact-info {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .social-links {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+            }
+            
+            nav ul {
+                gap: 10px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+234 703 921 5381</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>innocentbusinessschool@gmail.com</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo">
+                     <img src="{% static 'work/image/logo.jpg' %}" width='120' height='120' viewBox='0 0 70 70' alt="NACABS Poly Logo">
+                     <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Crect width='70' height='70' fill='%23003366' rx='10'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3ENP%3C/text%3E%3C/svg%3E" alt="NACABS Poly Logo"> -->
+                </div>
+                <div class="logo-text">
+                    <h1>NACABS POLYTECHNIC, KABAYI STUDY CENTER</h1>
+                    <span>Technology, Innovation, Excellence</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'academics' %}">Academics</a></li>
+                    <li><a href="{% url 'admissions' %}">Admissions</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Shaping Future Innovators</h2>
+            <p>Nigeria's premier polytechnic offering industry-focused technical education and cutting-edge research opportunities in engineering, computing, and business disciplines.</p>
+            <div class="hero-buttons">
+                <a href="{% url 'admissions' %}" class="btn">Apply Now</a>
+                <a href="{% url 'gallery' %}" class="btn">Virtual Tour</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="links-grid">
+                <div class="link-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Admissions</h3>
+                    <p>Apply for ND and HND programs</p>
+                </div>
+                <div class="link-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Academics</h3>
+                    <p>Explore our programs and courses</p>
+                </div>
+                <div class="link-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Academic Calendar</h3>
+                    <p>View important dates and events</p>
+                </div>
+                <div class="link-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Downloads</h3>
+                    <p>Forms, brochures, and documents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Announcements -->
+    <section class="announcements">
+        <div class="container">
+            <div class="section-header">
+                <h2>News & Announcements</h2>
+                <p>Stay updated with the latest happenings on campus</p>
+            </div>
+            
+            <div class="announcements-grid">
+                <div class="announcement-card">
+                    <div class="announcement-img">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Convocation">
+                    </div>
+                    <div class="announcement-content">
+                        <div class="announcement-date">
+                            <i class="far fa-calendar"></i>
+                            <span>November 14, 2025</span>
+                        </div>
+                        <h3>2025 Graduation Ceremony</h3>
+                        <p>Join us as we celebrate the achievements of our graduating students on November 14th at the main campus auditorium.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="announcement-img">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Scholarship">
+                    </div>
+                    <div class="announcement-content">
+                        <div class="announcement-date">
+                            <i class="far fa-calendar"></i>
+                            <span>September 20, 2025</span>
+                        </div>
+                        <h3>Scholarship Opportunities</h3>
+                        <p>Applications are now open for the 2025 STEM Women in Technology Scholarship program.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="announcement-card">
+                    <div class="announcement-img">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Research">
+                    </div>
+                    <div class="announcement-content">
+                        <div class="announcement-date">
+                            <i class="far fa-calendar"></i>
+                            <span>June 5, 2025</span>
+                        </div>
+                        <h3>Research Grant Awarded</h3>
+                        <p>NACABS Polytechnic receives ₦85 million grant for renewable energy research from the Federal Ministry of Science.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Academic Programs</h2>
+                <p>Industry-focused education in technology and business disciplines</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>School of Computing</h3>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>Computer Science</li>
+                            <li>Software Engineering</li>
+                            <li>Data Science</li>
+                            <li>Information Technology</li>
+                            <li>Cybersecurity</li>
+                        </ul>
+                        <a href="{% url 'admissions' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>School of Engineering</h3>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>Electrical/Electronics Engineering</li>
+                            <li>Mechanical Engineering</li>
+                            <li>Civil Engineering</li>
+                            <li>Computer Engineering</li>
+                            <li>Mechatronics Engineering</li>
+                        </ul>
+                        <a href="{% url 'admissions' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>School of Environmental Studies</h3>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>Architecture</li>
+                            <li>Estate Management</li>
+                            <li>Urban & Regional Planning</li>
+                            <li>Building Technology</li>
+                            <li>Quantity Surveying</li>
+                        </ul>
+                        <a href="{% url 'admissions' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>School of Communication & IT</h3>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>Mass Communication</li>
+                            <li>Library & Information Science</li>
+                            <li>Office Technology & Management</li>
+                            <li>Multimedia Technology</li>
+                            <li>Printing Technology</li>
+                        </ul>
+                        <a href="{% url 'admissions' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>School of Applied Sciences</h3>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>Microbiology</li>
+                            <li>Biochemistry</li>
+                            <li>SCience Lab Technology</li>
+                            <li>Physics</li>
+                            <li>Chemistry</li>
+                        </ul>
+                        <a href="{% url 'admissions' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>School of Business</h3>
+                    </div>
+                    <div class="program-body">
+                        <ul>
+                            <li>Business Administration</li>
+                            <li>Accounting</li>
+                            <li>Banking & Finance</li>
+                            <li>Marketing</li>
+                            <li>Entrepreneurship</li>
+                        </ul>
+                        <a href="{% url 'admissions' %}" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label">Graduation Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Industry Partners</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">Alumni</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About NACABS Polytechnic</h3>
+                    <p>NACABS Polytechnic is a premier technical institution in Nigeria, committed to providing quality education and producing graduates who are technologically skilled and innovative.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="{% url 'academics' %}"><i class="fas fa-chevron-right"></i> Academics</a></li>
+                        <li><a href="{% url 'admissions' %}"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                        <li><a href="{% url 'contact' %}"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info-footer">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>KM 12, Kabayi, Mararaba, Nasarawa State, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 703 921 5381</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>innocentbusinessschool@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 8:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 NACABS Polytechnic. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> by COMPUTER SCIENCE DEPARTMENT</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            statNumbers.forEach(stat => {
+                const originalText = stat.innerText.trim();
+                const hasPlus = originalText.includes('+');
+                const target = parseInt(originalText.replace(/[^0-9]/g, '')); // removes non-numeric chars
+                const duration = 2000;
+                const increment = target / (duration / 10);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        stat.innerText = target.toLocaleString() + (hasPlus ? '+' : '');
+                    } else {
+                        stat.innerText = Math.ceil(current).toLocaleString() + (hasPlus ? '+' : '');
+                    }
+                }, 10);
+            });
+        });
+    </script>
+</body>
+</html>

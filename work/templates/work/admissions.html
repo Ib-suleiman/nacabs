@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admissions - Premier Polytechnic</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #005a9c;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    .admission-form {
+      background-color: #f2f6ff;
+      padding: 20px;
+      border-left: 5px solid #005a9c;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #005a9c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NACABS Polytechnic, Kabayi Study Center</h1>
+    <p>Your Path to Practical and Professional Excellence</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'academics' %}">Academics</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </nav>
+
+  <main>
+
+      <!-- Message display -->
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert" style="color: green;">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+    <section>
+      <h2>Admission Overview</h2>
+      <p>
+        NACABS Polytechnic welcomes applications from qualified candidates seeking National Diploma (ND) and Higher National Diploma (HND) programs. 
+        We are committed to providing a transparent and merit-based admission process.
+      </p>
+    </section>
+
+    <section>
+      <h2>Entry Requirements</h2>
+      <ul>
+        <li>Minimum of 5 O'Level credits in relevant subjects including English and Mathematics (for ND programs).</li>
+        <li>OND/ND certificate from a recognized institution with at least Lower Credit (for HND programs).</li>
+        <li>JAMB UTME result with the Polytechnic selected as first or second choice (for ND applicants).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Application Process</h2>
+      <ol>
+        <li>Visit our official admissions portal.</li>
+        <li>Fill out the online application form.</li>
+        <li>Pay the non-refundable application fee.</li>
+        <li>Upload necessary documents (e.g. O'Level results, birth certificate).</li>
+        <li>Submit and await confirmation via email/SMS.</li>
+      </ol>
+    </section>
+
+    <section class="admission-form">
+      <h2>Quick Application Form</h2>
+
+      <form method="POST" action="{% url 'apply' %}" id="admissionForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="fullname">Full Name:</label>
+        <input type="text" name="name" id="fullname" name="fullname" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="program">Program of Interest:</label>
+        <select id="program" name="program" required>
+          <option value="">-- Select Program --</option>
+          <option value="ND Computer Science">ND Computer Science</option>
+          <option value="ND Electrical Engineering">ND Electrical Engineering</option>
+          <option value="ND Business Admin">ND Business Administration</option>
+          <option value="ND Public Admin">ND Public Administration</option>
+          <option value="ND Mass Communication">ND Mass Communication</option>
+          <option value="ND Computer Science">ND Computer Science</option>
+          <option value="ND LIS">ND Library and Information Science</option>
+          <option value="HND Computer Science">HND Computer Science</option>
+          <option value="HND Electrical Engineering">HND Electrical Engineering</option>
+          <option value="HND Business Admin">HND Business Administration</option>
+          <option value="HND Public Admin">HND Public Administration</option>
+          <option value="HND Mass Communication">HND Mass Communication</option>
+          <option value="HND Computer Science">HND Computer Science</option>
+          <option value="HND LIS">HND Library and Information Science</option>
+        </select>
+
+        <!-- File upload field -->
+        <label for="document">Upload Credentials and Relevant Document (in a single file):</label>
+        <input type="file" name="document" id="document" name="document" required />
+
+        <label for="message">Any Questions or Comments?</label>
+        <textarea id="message" name="question/comment" rows="4"></textarea>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NACABS Polytechnic. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

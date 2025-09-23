@@ -1,0 +1,53 @@
+<div class="contact-form">
+      <h2>Send Us a Message</h2>
+
+      {% if messages %}
+        {% for message in messages %}
+          <p class="success">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+      <form action="{% url 'contact-us' %}" method="post">
+        {% csrf_token %}
+        <label for="">Name: </label>
+        <input type="text" id="name" name="name" placeholder="Enter full name" class="form-control" required /> <br>
+        <label for="">Email: </label>
+        <input type="email" id="email" name="email" placeholder="Enter email" class="form-control" required /> <br>
+        <label for="">Phone number: </label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" class="form-control" required /> <br>
+        <label for="">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" class="form-control" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+
+
+    <section class="contactForm">
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        {% if messages %}
+          {% for message in messages %}
+            <p class="success">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        <form action="{% url 'contact-us' %}" method="POST">
+          {% csrf_token %}
+        <label for="name">Full Name: </label>
+        <input type="text" id="name" name="name" placeholder="Enter full name" class="form-control" required />
+
+        <label for="phone number">Phone number: </label>
+        <input type="tel" name="phone" id="phone" placeholder="Enter phone number" class="form-control" required/>
+
+        <label for="email">Email Address: </label>
+        <input type="email" id="email" name="email" placeholder="Enter email address" class="form-control" required />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="6" class="form-control" required></textarea>
+        
+
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+    </div>
+</section>
+
+
+    

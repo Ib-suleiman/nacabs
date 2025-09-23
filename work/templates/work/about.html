@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Premier Polytechnic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1{
+      color: #fff;
+    }
+
+    nav {
+      background-color: #005a9c;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+      background-color: white;
+    }
+
+    h1, h2 {
+      color: #003366;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .mission-vision {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .mission-vision div {
+      flex: 1;
+      min-width: 280px;
+      background: #e8f0fa;
+      padding: 20px;
+      border-left: 5px solid #003366;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .mission-vision {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>NACABS Polytechnic, Kabayi Study Center</h1>
+    <p>Empowering Technical Excellence</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="{% url 'courses' %}">Courses</a>
+    <a href="{% url 'admissions' %}">Admission</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>About Us</h2>
+
+    <div class="section">
+      <p>
+        NACABS Polytechnic, Kabayi Study Center is a government-accredited institution committed to delivering high-quality technical and vocational education. 
+        Since our inception, we have produced competent graduates ready to take on leadership roles in industry, entrepreneurship, and research.
+        Our philosophy is rooted in innovation, discipline, and academic excellence.
+      </p>
+    </div>
+
+    <div class="section mission-vision">
+      <div>
+        <h3>Our Mission</h3>
+        <p>
+          To provide world-class education and hands-on training that equip students with practical skills, 
+          ethical values, and problem-solving capabilities to contribute meaningfully to national development.
+        </p>
+      </div>
+      <div>
+        <h3>Our Vision</h3>
+        <p>
+          To be a leading polytechnic recognized globally for producing innovative, employable, and entrepreneurial graduates.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Our Core Values</h3>
+      <ul>
+        <li>Academic Excellence</li>
+        <li>Integrity and Accountability</li>
+        <li>Innovation and Creativity</li>
+        <li>Student-Centered Learning</li>
+        <li>Community Engagement</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Accreditation</h3>
+      <p>
+        NACABS Polytechnic, Kabayi Study Center is accredited by the National Board for Technical Education (NBTE), with full recognition 
+        by the Federal Ministry of Education. Our programs meet industry and academic standards.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Leadership</h3>
+      <p>
+        Our institution is governed by a team of experienced educators and administrators who are passionate 
+        about student success. The Rector, alongside dedicated Deans and Department Heads, ensures we uphold 
+        our academic and moral standards.
+      </p>
+    </div>
+  </main>
+
+    <!-- Management Team Section -->
+    <section class="management-team" style="background-color: #f0f8ff; padding: 40px 20px;">
+      <div style="max-width: 1100px; margin: auto; text-align: center;">
+        <h2 style="color: #003366; margin-bottom: 30px;">Meet Our Management Team</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+          
+          <div style="width: 220px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            <img src="{% static 'work/image/Coordinator 2.jpeg' %}" alt="Rector" style="width: 100%; height: 250px">
+            <div style="padding: 15px;">
+              <h4 style="margin: 10px 0; color: #003366;">Dr. Innocent Odey</h4>
+              <p style="font-size: 0.9rem; color: #555;">Chairman</p>
+            </div>
+          </div>
+
+          <div style="width: 220px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            <img src="{% static 'work/image/Mrs. Odey 2.jpg' %}" alt="Rector" style="width: 100%; height: 250px">
+            <div style="padding: 15px;">
+              <h4 style="margin: 10px 0; color: #003366;">Mrs. Innocent Odey</h4>
+              <p style="font-size: 0.9rem; color: #555;">Chairman</p>
+            </div>
+          </div>
+
+          <div style="width: 220px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            <img src="{% static 'work/image/Okunade Oluwasogo.png' %}" alt="Registrar" style="width: 100%; height: 250px">
+            <div style="padding: 15px;">
+              <h4 style="margin: 10px 0; color: #003366;">Dr. Okunade Oluwasogo</h4>
+              <p style="font-size: 0.9rem; color: #555;">Rector</p>
+            </div>
+          </div>
+
+          <div style="width: 220px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            <img src="{% static 'work/image/ICT 3.jpg' %}" alt="ICT"  style="width: 100%; height: 250px">
+            <div style="padding: 15px;">
+              <h4 style="margin: 10px 0; color: #003366;">Mr. Ibrahim Suleiman</h4>
+              <p style="font-size: 0.9rem; color: #555;">ICT Director</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NACABS Polytechnic, Kabayi Studey center. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log("About page loaded successfully.");
+      alert("Welcome to Our Kabayi Study Center");
+    });
+  </script>
+</body>
+</html>
