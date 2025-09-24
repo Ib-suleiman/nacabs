@@ -140,4 +140,4 @@ EMAIL_HOST_PASSWORD = 'owtqbrhfnajfdtzw'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost' '.onrender.com']

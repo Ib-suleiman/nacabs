@@ -26,7 +26,7 @@ def contact(request):
     return render(request, 'work/contact.html')
 
 def gallery(request):
-    return render(request, 'work/gallery.html')
+    return render(request, 'work/gallery 2.html')
 
 def scholarship(request):
     return render(request, 'work/scholarship.html')

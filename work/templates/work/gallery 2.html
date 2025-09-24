@@ -362,26 +362,120 @@
                 width: 95%;
             }
         }
+
+        body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #005a9c;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    .admission-form {
+      background-color: #f2f6ff;
+      padding: 20px;
+      border-left: 5px solid #005a9c;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #005a9c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        font-size: 14px;
+      }
+    }
     </style>
 </head>
+</head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="https://via.placeholder.com/50x50/1a2a6c/ffffff?text=P" alt="Polytechnic Logo" class="logo-img">
-                <h1>Polytechnic Institution</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#" class="active">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+
+  <header>
+    <h1>NACABS Polytechnic, Kabayi Study Center</h1>
+    <p>Your Path to Practical and Professional Excellence</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'academics' %}">Academics</a>
+    <a href="{% url 'contact' %}">Contact</a>
+  </nav>
+    </div>
     </header>
 
     <!-- Hero Section -->
@@ -420,27 +514,27 @@
                 </div>
                 
                 <div class="gallery-item" data-category="campus">
-                    <img src="https://images.unsplash.com/photo-1524178232400-38d816f003ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Library">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708882/1758705523445_edvkmp.jpg" alt="Engineers">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Central Library</div>
-                        <div class="gallery-item-desc">Our well-stocked library with study areas</div>
+                        <div class="gallery-item-title">Engineers</div>
+                        <div class="gallery-item-desc">Engineers working on Site</div>
                     </div>
                 </div>
                 
                 <!-- Events Images -->
                 <div class="gallery-item" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Graduation Ceremony">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758713169/IMG-20250907-WA0006_lohy91.jpg" alt="Class session">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Graduation Day</div>
-                        <div class="gallery-item-desc">Annual graduation ceremony</div>
+                        <div class="gallery-item-title">Class activity</div>
+                        <div class="gallery-item-desc">Interactive class activities</div>
                     </div>
                 </div>
                 
                 <div class="gallery-item" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tech Festival">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708883/1758705523563_rd4bqm.jpg" alt="Doctorate degree">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Tech Festival</div>
-                        <div class="gallery-item-desc">Annual technical festival showcasing student projects</div>
+                        <div class="gallery-item-title">PhD thesis defence</div>
+                        <div class="gallery-item-desc">Successful PhD defense of our lecturer</div>
                     </div>
                 </div>
                 
@@ -463,24 +557,24 @@
                 
                 <!-- Achievements Images -->
                 <div class="gallery-item" data-category="achievements">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Award Ceremony">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708882/1758705523464_uqfy5v.jpg" alt="Award Ceremony">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-title">Award Ceremony</div>
-                        <div class="gallery-item-desc">Students receiving awards for excellence</div>
+                        <div class="gallery-item-desc">Center coordinator being receiving award of Excellence</div>
                     </div>
                 </div>
                 
                 <div class="gallery-item" data-category="achievements">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project Exhibition">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708882/1758705523523_xjox5v.jpg" alt="Project Exhibition">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Project Exhibition</div>
-                        <div class="gallery-item-desc">Student projects on display</div>
+                        <div class="gallery-item-title">Lecturers Meeting</div>
+                        <div class="gallery-item-desc">Lecturers engaging students in departmental meeting</div>
                     </div>
                 </div>
                 
                 <!-- Sports Images -->
                 <div class="gallery-item" data-category="sports">
-                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sports Day">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708883/1758705523484_s15e39.jpg" alt="Sports Day">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-title">Annual Sports Day</div>
                         <div class="gallery-item-desc">Students participating in sports events</div>
@@ -488,7 +582,7 @@
                 </div>
                 
                 <div class="gallery-item" data-category="sports">
-                    <img src="https://images.unsplash.com/photo-1549313861-33587f3d2956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Basketball Tournament">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758713168/IMG-20250907-WA0005_sxtpig.jpg" alt="Basketball Tournament">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-title">Basketball Tournament</div>
                         <div class="gallery-item-desc">Inter-department basketball competition</div>
@@ -497,7 +591,7 @@
                 
                 <!-- Additional Images -->
                 <div class="gallery-item" data-category="campus">
-                    <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Student Common Area">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708881/1758705523425_lregr1.jpg" alt="Student Common Area">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-title">Student Common Area</div>
                         <div class="gallery-item-desc">Relaxation and study space for students</div>
