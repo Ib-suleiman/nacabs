@@ -28,7 +28,6 @@ DEBUG = False
 
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -141,10 +140,3 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.onrender.com', 'nacabspoly.onrender.com']
-
-ANYMAIL = {
-    "RESEND_API_KEY": os.environ.get("RESEND_API_KEY"),  # must be set in Render
-}
-
-EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
-DEFAULT_FROM_EMAIL = "nacabspoly@onrender-messages.resend.dev"  # Replace with your actual resend.dev domain
