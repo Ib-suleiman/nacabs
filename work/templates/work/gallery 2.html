@@ -500,16 +500,16 @@
                 <button class="filter-btn" data-filter="events">Events</button>
                 <button class="filter-btn" data-filter="labs">Labs & Workshops</button>
                 <button class="filter-btn" data-filter="achievements">Achievements</button>
-                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="classes">Classes</button>
             </div>
             
             <div class="gallery-grid">
                 <!-- Campus Images -->
                 <div class="gallery-item" data-category="campus">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Campus Building">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758877779/1758877742373_y9e3kv.jpg" alt="Center Coordinator">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Main Campus</div>
-                        <div class="gallery-item-desc">Our beautiful main campus building</div>
+                        <div class="gallery-item-title">Center Coordinator</div>
+                        <div class="gallery-item-desc">Center Coordinator having chat with students</div>
                     </div>
                 </div>
                 
@@ -523,7 +523,7 @@
                 
                 <!-- Events Images -->
                 <div class="gallery-item" data-category="events">
-                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758713169/IMG-20250907-WA0006_lohy91.jpg" alt="Class session">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758713169/IMG-20250907-WA0006_lohy91.jpg" alt="Class activity">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-title">Class activity</div>
                         <div class="gallery-item-desc">Interactive class activities</div>
@@ -565,7 +565,7 @@
                 </div>
                 
                 <div class="gallery-item" data-category="achievements">
-                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708882/1758705523523_xjox5v.jpg" alt="Project Exhibition">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708882/1758705523523_xjox5v.jpg" alt="Lecturer's Meeting">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-title">Lecturers Meeting</div>
                         <div class="gallery-item-desc">Lecturers engaging students in departmental meeting</div>
@@ -573,36 +573,36 @@
                 </div>
                 
                 <!-- Sports Images -->
-                <div class="gallery-item" data-category="sports">
-                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708883/1758705523484_s15e39.jpg" alt="Sports Day">
+                <div class="gallery-item" data-category="classes">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708883/1758705523484_s15e39.jpg" alt="Departmental Meeting">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Annual Sports Day</div>
-                        <div class="gallery-item-desc">Students participating in sports events</div>
+                        <div class="gallery-item-title">Departmental Meeting</div>
+                        <div class="gallery-item-desc">Students having a Departmental Meeting</div>
                     </div>
                 </div>
                 
-                <div class="gallery-item" data-category="sports">
-                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758713168/IMG-20250907-WA0005_sxtpig.jpg" alt="Basketball Tournament">
+                <div class="gallery-item" data-category="classes">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758713168/IMG-20250907-WA0005_sxtpig.jpg" alt="Class">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Basketball Tournament</div>
-                        <div class="gallery-item-desc">Inter-department basketball competition</div>
+                        <div class="gallery-item-title">Class</div>
+                        <div class="gallery-item-desc">Engaging class sessions</div>
                     </div>
                 </div>
                 
                 <!-- Additional Images -->
-                <div class="gallery-item" data-category="campus">
-                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708881/1758705523425_lregr1.jpg" alt="Student Common Area">
+                <div class="gallery-item" data-category="classes">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758708881/1758705523425_lregr1.jpg" alt="Students class activities">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Student Common Area</div>
-                        <div class="gallery-item-desc">Relaxation and study space for students</div>
+                        <div class="gallery-item-title">Students class activities</div>
+                        <div class="gallery-item-desc">Students having interactive class session</div>
                     </div>
                 </div>
                 
                 <div class="gallery-item" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Workshop">
+                    <img src="https://res.cloudinary.com/daz4fdtrh/image/upload/v1758878207/1758877973100_ec2xhx.jpg" alt="Students Fun Time">
                     <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">Industry Workshop</div>
-                        <div class="gallery-item-desc">Hands-on workshop with industry experts</div>
+                        <div class="gallery-item-title">Students Fun Time</div>
+                        <div class="gallery-item-desc">ND 1 Computer Science Students having Fun Time</div>
                     </div>
                 </div>
             </div>
@@ -630,19 +630,19 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Programs</a></li>
-                        <li><a href="#">Admissions</a></li>
-                        <li><a href="#">Campus Tour</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'academics' %}">Programs</a></li>
+                        <li><a href="{% url 'admissions' %}">Admissions</a></li>
+                        <li><a href="{% url 'gallery' %}">Campus Tour</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contact Information</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, City, Country</p>
-                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
-                    <p><i class="fas fa-envelope"></i> info@polytechnic.edu</p>
+                    <p><i class="fas fa-map-marker-alt"></i> KM 12, Kabayi, Mararaba, Nasarawa State, Nigeria</p>
+                    <p><i class="fas fa-phone"></i> +234 703 921 5381</p>
+                    <p><i class="fas fa-envelope"></i> innocentbusinessschool@gmail.com</p>
                     
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -655,7 +655,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Polytechnic Institution. All rights reserved.</p>
+                <p>&copy; 2025 NACABS Polytechnic. All rights reserved.</p>
             </div>
         </div>
     </footer>
