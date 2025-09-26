@@ -27,7 +27,6 @@ SECRET_KEY = 'django-insecure-5ygf+b01vz9#+o1j1&ykxet*m&qr9k8^f!^45ns4v^w#%heeum
 DEBUG = False
 
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -132,6 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -140,6 +140,11 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.onrender.com', 'nacabspoly.onrender.com']
 
+ANYMAIL = {
+    "RESEND_API_KEY": os.environ.get("RESEND_API_KEY"),  # must be set in Render
+}
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost' '.onrender.com', 'nacabspoly.onrender.com']
+EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
+DEFAULT_FROM_EMAIL = "nacabspoly@onrender-messages.resend.dev"  # Replace with your actual resend.dev domain
