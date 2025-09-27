@@ -53,7 +53,7 @@ def contact_us(request):
             subject=f"New Contact Form Submission from {name}",
             message=full_message,
             from_email='ibrahimsuleiman77@gmail.com',
-            recipient_list=['ibrahimsuleiman77@gmail.com', 'innocentbusinessschool@gmail.com'],
+            recipient_list=['ibrahimsuleiman77@gmail.com', 'innobecbusinessschool@gmail.com'],
         )
 
         messages.success(request, "Your message has been sent successfully!")
@@ -86,7 +86,7 @@ def apply_admission(request):
             subject=f"New Admission Application from {name}",
             body=full_message,
             from_email='ibrahimsuleiman77@gmail.com',
-            to=['ibrahimsuleiman77@gmail.com'],
+            to=['ibrahimsuleiman77@gmail.com', 'innobecbusinessschool@gmail.com'],
         )
 
         # Attach the file if uploaded
