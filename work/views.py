@@ -53,7 +53,7 @@ def contact_us(request):
             subject=f"New Contact Form Submission from {name}",
             message=full_message,
             from_email='ibrahimsuleiman77@gmail.com',
-            recipient_list=['ibrahimsuleiman77@gmail.com', 'ibsuleiman123@gmail.com'],
+            recipient_list=['ibrahimsuleiman77@gmail.com', 'innocentbusinessschool@gmail.com'],
         )
 
         messages.success(request, "Your message has been sent successfully!")
