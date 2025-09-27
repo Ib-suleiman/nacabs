@@ -24,8 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5ygf+b01vz9#+o1j1&ykxet*m&qr9k8^f!^45ns4v^w#%heeum'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -130,13 +131,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ibrahimsuleiman77@gmail.com'
+# EMAIL_HOST_PASSWORD = 'owtqbrhfnajfdtzw'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') 
+
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.onrender.com', 'nacabspoly.onrender.com']
+
